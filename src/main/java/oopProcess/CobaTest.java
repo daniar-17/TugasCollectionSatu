@@ -17,7 +17,6 @@ public class CobaTest {
     public static void main(String[] args) {
         System.out.println("Learning Array List");
         System.out.println("-------------------");
-        
         List<Integer> ListNilai = new ArrayList<>();
         List<Integer> listMatch = new ArrayList<>();
         int n = 200;
@@ -36,11 +35,25 @@ public class CobaTest {
         List<Integer> ListNilai2 = ListNilai.stream().distinct().collect(Collectors.toList());
         List<Integer> listMatch2 = listMatch.stream().distinct().collect(Collectors.toList());
         
+        // Result List Nilai and Match
+        System.out.print("List Nilai NonDuplicate : ");
+        for (int i = 0; i < ListNilai2.size(); i++) {
+            System.out.print(ListNilai2.get(i) + ", ");
+        }
+        System.out.println();
+        System.out.print("List Match NonDuplicate : ");
+        for (int i = 0; i < listMatch2.size(); i++) {
+            System.out.print(listMatch2.get(i) + ", ");
+        }
+        System.out.println();
+        
         // Call Function/Procedure ListNilaiTerdaftar
         List<Integer> finalResult = getListNilaiTerdaftar(ListNilai2, listMatch2);
         
+        // Call Final Result
+        System.out.print("List Result : ");
         for (int i = 0; i < finalResult.size(); i++) {
-            System.out.println(finalResult.get(i) + ", ");
+            System.out.print(finalResult.get(i) + ", ");
         }
         
         // return nilai dari method getListNilaiTerdaftar
@@ -50,7 +63,7 @@ public class CobaTest {
     
     private static List<Integer> getListNilaiTerdaftar(List<Integer> ListNilaiTemp, List<Integer> ListMatchTemp) {
         
-        // Bandindkan Antara ListNilai dan ListMatch
+        // Bandingkan Antara ListNilai dan ListMatch
         List<Integer> newCheck = new ArrayList<>();
         for (int i = 0; i < ListMatchTemp.size(); i++) {
             for (int j = 0; j < ListNilaiTemp.size(); j++) {
